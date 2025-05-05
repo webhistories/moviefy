@@ -10,7 +10,7 @@ export async function generatePoster({ topArtists, topSong, username, topGenre, 
       tagline: [
         "A STORY OF SHADOWS, STORMS, AND THE MUSIC THAT HAUNTS YOU",
         "WHEN THE MUSIC STOPS, THE ECHOES BEGIN",
-        "A HORROR STORY OF ECHOES, SHADOWS, AND THE SONGS YOU WISH YOU NEVER HEARD"
+        "SOME SONGS NEVER DIE, THEY JUST WAIT TO BE HEARD"
       ],
       moviefyFont: "300px 'Anton'",
       moviefyPosition: 900, 
