@@ -2,7 +2,7 @@ import { generateCodeVerifier, generateCodeChallenge } from './pkce.js';
 
 const clientId = "da8efc3f20814776b216228d8a9033fe";
 // const redirectUri = "http://127.0.0.1:8000/";
-const redirectUri = "https://bea-moviefy.netlify.app/";
+const redirectUri = "https://moviefy-web.netlify.app/";
 const scopes = "user-top-read";
 
 export async function redirectToSpotifyLogin() {
