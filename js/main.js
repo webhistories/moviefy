@@ -19,14 +19,18 @@ if (code) {
   });
 }
 
+function getRandomSubset(arr, count) {
+  const shuffled = [...arr].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+}
 // Function to fetch Spotify data (top artists, top tracks, user profile)
 async function fetchSpotifyData(token) {
   const headers = { Authorization: `Bearer ${token}` };
 
   try {
     const [artistsRes, tracksRes, userRes, playlistsRes] = await Promise.all([
-      fetch("https://api.spotify.com/v1/me/top/artists?limit=5", { headers }),
-      fetch("https://api.spotify.com/v1/me/top/tracks?limit=1", { headers }),
+      fetch("https://api.spotify.com/v1/me/top/artists?limit=20", { headers }),
+      fetch("https://api.spotify.com/v1/me/top/tracks?limit=10", { headers }),
       fetch("https://api.spotify.com/v1/me", { headers }),
       fetch("https://api.spotify.com/v1/me/playlists?limit=10", { headers }),
     ]);
@@ -43,14 +47,15 @@ async function fetchSpotifyData(token) {
     console.log("Playlists Data:", playlistsData);
 
     const topArtists = artistsData.items;
-    const topTrack = tracksData.items[0];
+    const topTracks = tracksData.items;
+	const randomTrack = topTracks[Math.floor(Math.random() * topTracks.length)];
     const user = userData;
     const playlistName = getRandomPlaylistName(playlistsData.items);
     const topGenre = getTopGenre(topArtists);
 
     await generatePoster({
-      topArtists: topArtists.map(a => a.name),
-      topSong: topTrack?.name || "Your Top Song",  // Fallback if no song
+      topArtists: getRandomSubset(topArtists, 5).map(a => a.name),
+      topSong: randomTrack?.name || "Your Top Song",
       username: user.display_name || "You",  // Fallback if no username
       topGenre,
       playlist: playlistName,

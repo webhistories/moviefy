@@ -16,12 +16,14 @@ body {
   padding: 2rem;
 }
 
+/* App container for centering content */
 .app-container {
   max-width: 600px;
   width: 100%;
   text-align: center;
 }
 
+/* Heading styling */
 h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -33,9 +35,12 @@ h1 {
 #posterCanvas {
   width: 100%;
   max-width: 360px;
-  border-radius: 16px;
+  /* border-radius: 16px; */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.5rem;
+  display: block; /* Ensures canvas is treated as a block element */
+  margin-left: auto;  /* Centers canvas horizontally */
+  margin-right: auto; /* Centers canvas horizontally */
 }
 
 /* Button Styling */
@@ -50,7 +55,7 @@ button {
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   font-weight: 500;
-  background-color: #1db954;
+  background-color: #0f0e45;
   color: white;
   border: none;
   border-radius: 12px;
@@ -92,7 +97,7 @@ button:disabled {
 .login-card h1 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
-  color: #1db954;
+  color: #0f0e45;
 }
 
 .login-card p {
