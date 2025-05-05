@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How It Works – Moviefy</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="header"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('header').innerHTML = html;
+      });
+  </script>
+
+  <main class="content-container">
+    <h1>🎬 How Moviefy Works</h1>
+    <p>Moviefy turns your Spotify music taste into a shareable movie poster. Here’s how it works:</p>
+
+    <ol>
+      <li><strong>Login with Spotify</strong> – We securely connect to your account using Spotify’s official login system (OAuth).</li>
+      <li><strong>Get Your Top Tracks & Artists</strong> – We access your listening data to find your top songs and artists. We don’t store any of it.</li>
+      <li><strong>Generate a Poster</strong> – Your music data is used to create a cinematic-style poster with a custom layout and background image.</li>
+      <li><strong>Download or Share</strong> – You can download your poster or share it directly to Instagram Stories.</li>
+    </ol>
+
+    <p>Your data is never saved or shared. Learn more in our <a href="privacy.html">Privacy Policy</a>.</p>
+
+    <p>Image credits for background photos can be found on our <a href="photo-credits.html">Photo Attribution List</a>.</p>
+  </main>
+</body>
+</html>

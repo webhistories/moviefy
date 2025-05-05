@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Photo Credits – Moviefy</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .credits-container {
+      max-width: 700px;
+      margin: 6rem auto 3rem;
+      padding: 2rem;
+      font-family: 'Barlow', sans-serif;
+      color: #333;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      color: #0f0e45;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 0.75rem;
+    }
+
+    a {
+      color: #0f0e45;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('header').innerHTML = html;
+      });
+  </script>
+
+  <main class="credits-container">
+    <h1>Photo Credits</h1>
+    <p>These background images were provided by talented photographers on <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>:</p>
+    <ul id="creditList">
+      <!-- JS will populate this -->
+    </ul>
+  </main>
+
+  <script>
+    fetch('img/photo-credits.txt')
+      .then(response => response.text())
+      .then(data => {
+        const lines = data.trim().split('\n');
+        const list = document.getElementById('creditList');
+        lines.forEach(line => {
+          const [name, url] = line.split(',');
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = url.trim();
+          a.textContent = name.trim();
+          a.target = '_blank';
+          a.rel = 'noopener';
+          li.appendChild(a);
+          list.appendChild(li);
+        });
+      })
+      .catch(error => {
+        console.error('Failed to load photo credits:', error);
+      });
+  </script>
+</body>
+</html>
