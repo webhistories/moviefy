@@ -12,45 +12,124 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   min-height: 100vh;
   padding: 2rem;
 }
 
-/* App container for centering content */
-.app-container {
-  max-width: 600px;
+/* Header */
+.header {
   width: 100%;
+  background-color: #0f0e45;
+  color: white;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.5rem;
+}
+
+.hamburger {
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: none;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.menu {
+  display: flex;
+  gap: 1rem;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    background: #0f0e45;
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  #menu-toggle:checked + .hamburger + .menu {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Login Section */
+.login-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-}
-
-/* Heading styling */
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-  color: #333;
-}
-
-/* Canvas Styling */
-#posterCanvas {
   width: 100%;
-  max-width: 360px;
-  /* border-radius: 16px; */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem;
-  display: block; /* Ensures canvas is treated as a block element */
-  margin-left: auto;  /* Centers canvas horizontally */
-  margin-right: auto; /* Centers canvas horizontally */
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+  margin-top: 3rem;
+}
+
+.tagline-bold {
+  font-size: 2.8rem;
+  font-weight: 700;
+  font-family: 'Bebas Neue', sans-serif;
+  color: #0f0e45;
+  margin: 1rem 0;
+  line-height: 1.2;
+}
+
+.tagline-sub {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+.privacy-note {
+  font-size: 0.65rem;
+  color: #666;
+  margin-top: 1rem;
+  line-height: 1.4;
+  max-width: 320px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.privacy-note a {
+  color: inherit;
+  text-decoration: underline;
 }
 
 /* Button Styling */
-.button-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  align-items: center;
-}
-
 button {
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
@@ -76,32 +155,27 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Login Screen Styles */
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-.login-card {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 2.5rem 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+/* App Canvas */
+.app-container {
+  max-width: 600px;
+  width: 100%;
   text-align: center;
-  max-width: 400px;
-  width: 90%;
+  margin-top: 5rem;
 }
 
-.login-card h1 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-  color: #0f0e45;
-}
-
-.login-card p {
-  color: #555;
-  font-size: 1rem;
+#posterCanvas {
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
 }

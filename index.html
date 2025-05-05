@@ -14,19 +14,42 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="login-container" id="loginScreen">
-    <div class="login-card">
-      <h1>Moviefy</h1>
-      <p>Your music taste as a cinematic experience.</p>
-      <button id="loginBtn">🎧 Login with Spotify</button>
-    </div>
-  </div>
+<div id="header"></div>
+<script>
+  fetch('header.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('header').innerHTML = html;
+    });
+</script>
+
+  <!-- <div class="login-container" id="loginScreen"> -->
+    <!-- <div class="login-card"> -->
+      <!-- <p class="tagline-bold">Your music taste, reimagined as a movie.</p> -->
+	  <!-- <p class="tagline-sub">Turn your listening into a cinematic poster.</p> -->
+      <!-- <button id="loginBtn">🎧 Login with Spotify</button> -->
+	  <!-- <p class="privacy-note"> -->
+    <!-- By logging in, you agree to our <a href="privacy.html" target="_blank">Privacy Policy</a> and  -->
+    <!-- Spotify’s <a href="https://www.spotify.com/legal/privacy-policy/" target="_blank">Privacy Policy</a>. -->
+  <!-- </p> -->
+    <!-- </div> -->
+  <!-- </div> -->
+  <div class="login-screen" id="loginScreen">
+  <p class="tagline-bold">Your music taste, reimagined<br>as a movie</p>
+  <p class="tagline-sub">Turn your listening into a cinematic poster</p>
+  <button id="loginBtn">🎧 Login with Spotify</button>
+  <p class="privacy-note">
+    By logging in, you agree to our <a href="privacy.html" target="_blank">Privacy Policy</a> and 
+    Spotify’s <a href="https://www.spotify.com/legal/privacy-policy/" target="_blank">Privacy Policy</a>.
+  </p>
+</div>
+
 
   <div class="app-container" id="posterApp" style="display: none;">
     <canvas id="posterCanvas" style="display: none;" width="1080" height="1920"></canvas>
     <div class="button-group">
-      <button id="downloadBtn" style="display: none;">⬇️ Download</button>
-      <button id="shareBtn" style="display: none;">📲 Share to Story</button>
+      <button id="downloadBtn" style="display: none;">Download</button>
+      <button id="shareBtn" style="display: none;">Share to Story</button>
     </div>
   </div>
 
