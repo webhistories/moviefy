@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Moviefy</title>
+  
+  <!-- Google Fonts for Anton, Barlow, and Bebas Neue -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <!-- Web Font Loader Script -->
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+  
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="login-container" id="loginScreen">
+    <div class="login-card">
+      <h1>Moviefy</h1>
+      <p>Your music taste as a cinematic experience.</p>
+      <button id="loginBtn">🎧 Login with Spotify</button>
+    </div>
+  </div>
+
+  <div class="app-container" id="posterApp" style="display: none;">
+    <canvas id="posterCanvas" width="1080" height="1920"></canvas>
+    <div class="button-group">
+      <button id="downloadBtn" style="display: none;">⬇️ Download</button>
+      <button id="shareBtn" style="display: none;">📲 Share to Story</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+  <script type="module">
+    // Ensure fonts are loaded before rendering the canvas
+    WebFont.load({
+      google: {
+        families: ['Anton', 'Barlow:400,700', 'Bebas Neue']
+      },
+      active: function() {
+        // Fonts are loaded, now you can render the poster or initialize the canvas
+        document.getElementById('loginScreen').style.display = 'block'; // Show the login screen
+      },
+      inactive: function() {
+        console.error('Fonts failed to load');
+      }
+    });
+  </script>
+</body>
+</html>
