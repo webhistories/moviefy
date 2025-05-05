@@ -4,8 +4,46 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>How It Works – Moviefy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;700&family=Bebas+Neue&family=Russo+One&family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Barlow', sans-serif;
+      max-width: 700px;
+      margin: 6rem auto 3rem;
+      padding: 2rem;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #0f0e45;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      color: #0f0e45;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: #0f0e45;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   <div id="header"></div>
@@ -17,20 +55,21 @@
       });
   </script>
 
-  <main class="content-container">
-    <h1>🎬 How Moviefy Works</h1>
-    <p>Moviefy turns your Spotify music taste into a shareable movie poster. Here’s how it works:</p>
+  <main>
+    <h1>🎬How Moviefy Works</h1>
+    <p>Moviefy turns your Spotify listening data into a cinematic poster that looks like a movie release. It's fast, private, and personalized for you.</p>
 
-    <ol>
-      <li><strong>Login with Spotify</strong> – We securely connect to your account using Spotify’s official login system (OAuth).</li>
-      <li><strong>Get Your Top Tracks & Artists</strong> – We access your listening data to find your top songs and artists. We don’t store any of it.</li>
-      <li><strong>Generate a Poster</strong> – Your music data is used to create a cinematic-style poster with a custom layout and background image.</li>
-      <li><strong>Download or Share</strong> – You can download your poster or share it directly to Instagram Stories.</li>
-    </ol>
+    <h2>Step 1: Login with Spotify</h2>
+    <p>We use Spotify’s official login to access your top artists and tracks. This uses secure OAuth — we don’t see your password.</p>
 
-    <p>Your data is never saved or shared. Learn more in our <a href="privacy.html">Privacy Policy</a>.</p>
+    <h2>Step 2: Generate Your Poster</h2>
+    <p>Once logged in, your data is transformed into a high-res vertical movie poster, ready to download or share.</p>
 
-    <p>Image credits for background photos can be found on our <a href="photo-credits.html">Photo Attribution List</a>.</p>
+    <h2>Step 3: Customize and Save</h2>
+    <p>Choose your background, then download or share your story-ready poster. It’s designed to look good on Instagram, too.</p>
+
+    <h2>Photo Credits</h2>
+    <p>Backgrounds come from <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>. View full <a href="photo-credits.html">photo credits</a>.</p>
   </main>
 </body>
 </html>

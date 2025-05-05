@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Photo Credits – Moviefy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;700&family=Bebas+Neue&family=Russo+One&family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <style>
     .credits-container {
@@ -24,18 +25,21 @@
     }
 
     ul {
-      list-style: none;
-      padding-left: 0;
-    }
+  list-style: none;
+  padding-left: 0;
+  text-align: center; /* centers the list items */
+}
 
-    li {
-      margin-bottom: 0.75rem;
-    }
+li {
+  margin-bottom: 0.75rem;
+}
 
-    a {
-      color: #0f0e45;
-      text-decoration: none;
-    }
+a {
+  color: #0f0e45;
+  text-decoration: none;
+  display: inline-block; /* ensures it aligns well centered */
+}
+
 
     a:hover {
       text-decoration: underline;
@@ -54,9 +58,9 @@
 
   <main class="credits-container">
     <h1>Photo Credits</h1>
-    <p>These background images were provided by talented photographers on <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>:</p>
-    <ul id="creditList">
-      <!-- JS will populate this -->
+    <p>The background images were provided by talented photographers on <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>:</p>
+    <br><br>	
+	<ul id="creditList">
     </ul>
   </main>
 
