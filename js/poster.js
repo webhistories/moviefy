@@ -5,7 +5,11 @@ export async function generatePoster({ topArtists, topSong, username, topGenre, 
   // List of movie genres with associated backgrounds, fonts, and taglines
   const genres = {
     horror: {
-      background: "img/horror_bg.png",
+      background: [ "img/horror_bg_1.jpg",
+					"img/horror_bg_2.jpg",
+					"img/horror_bg_3.jpg"
+	  
+	  ],
       font: "32px 'Barlow'", 
       tagline: [
         "A STORY OF SHADOWS, STORMS, AND THE MUSIC THAT HAUNTS YOU",
@@ -18,7 +22,11 @@ export async function generatePoster({ topArtists, topSong, username, topGenre, 
 	  filmbyY: 580,
     },
     romance: {
-      background: "img/romance_bg.png",
+      background: [ "img/romance_bg_1.jpg",
+					"img/romance_bg_2.jpg",
+					"img/romance_bg_3.jpg"
+	  
+	  ],
       font: "32px 'Playfair Display'",
       tagline: [
         "LOVE CAN BE A BEAUTIFUL MYSTERY",
@@ -31,7 +39,12 @@ export async function generatePoster({ topArtists, topSong, username, topGenre, 
 	  filmbyY: 580,
     },
     sciFi: {
-      background: "img/scifi_bg.png",
+      background: [ "img/scifi_bg_1.jpg",
+					"img/scifi_bg_2.jpg",
+					"img/scifi_bg_3.jpg",
+					"img/scifi_bg_4.jpg"
+	  
+	  ],
       font: "32px 'Orbitron'",
       tagline: [
         "IN THE FUTURE, MUSIC WILL SAVE US ALL",
@@ -52,7 +65,8 @@ export async function generatePoster({ topArtists, topSong, username, topGenre, 
   // const selectedGenre = genres.romance;  // for testing 
 
   const img = new Image();
-  img.src = selectedGenre.background;
+  const randomBackground = selectedGenre.background[Math.floor(Math.random() * selectedGenre.background.length)];
+  img.src = randomBackground;
 
   console.log("Selected Genre:", selectedGenre);
 
