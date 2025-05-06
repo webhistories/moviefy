@@ -1,4 +1,4 @@
-export async function generatePoster({ topArtists, topSong, username, topGenre, playlist, runtime }) {
+export async function generatePoster({ topArtists, topSong, username, genreA, genreB, playlist, runtime }) {
   const canvas = document.getElementById("posterCanvas");
   const ctx = canvas.getContext("2d");
 
@@ -10,13 +10,14 @@ export async function generatePoster({ topArtists, topSong, username, topGenre, 
 					"img/horror_bg_3.jpg"
 	  
 	  ],
-      font: "32px 'Barlow'", 
+      font: "32px 'Barlow'",  
       tagline: [
         "A STORY OF SHADOWS, STORMS, AND THE MUSIC THAT HAUNTS YOU",
         "WHEN THE MUSIC STOPS, THE ECHOES BEGIN",
         "SOME SONGS NEVER DIE, THEY JUST WAIT TO BE HEARD"
       ],
-      moviefyFont: "300px 'Anton'",
+	  moviefyFontStyle: "'Anton'",
+	  moviefyFontSize: 300,
       moviefyPosition: 900, 
 	  moviefyColor: '#f5f5f5',
 	  filmbyY: 580,
@@ -33,7 +34,8 @@ export async function generatePoster({ topArtists, topSong, username, topGenre, 
         "THE SOUNDTRACK OF YOUR HEART",
         "WHEN MUSIC AND LOVE MEET"
       ],
-      moviefyFont: "250px 'Cormorant Garamond'", 
+	  moviefyFontStyle: "'Cormorant Garamond'",
+	  moviefyFontSize: 250,
       moviefyPosition: 500, 
 	  moviefyColor: '#f2f2f2',
 	  filmbyY: 580,
@@ -45,13 +47,15 @@ export async function generatePoster({ topArtists, topSong, username, topGenre, 
 					"img/scifi_bg_4.jpg"
 	  
 	  ],
+
       font: "32px 'Orbitron'",
       tagline: [
         "IN THE FUTURE, MUSIC WILL SAVE US ALL",
         "A JOURNEY BEYOND THE STARS",
         "THE SOUNDTRACK OF A GALAXY FAR AWAY"
       ],
-      moviefyFont: "210px 'Russo One'", 
+	  moviefyFontStyle: "'Russo One'",
+	  moviefyFontSize: 210,
       moviefyPosition: 1400,
 	  moviefyColor: '#f2a788',
 	  filmbyY: 1200,
@@ -62,7 +66,7 @@ export async function generatePoster({ topArtists, topSong, username, topGenre, 
   const selectedGenreKey = Object.keys(genres)[Math.floor(Math.random() * Object.keys(genres).length)];
   const selectedGenre = genres[selectedGenreKey];
   // force select one genre for test
-  // const selectedGenre = genres.romance;  // for testing 
+  //const selectedGenre = genres.horror;  // for testing 
 
   const img = new Image();
   const randomBackground = selectedGenre.background[Math.floor(Math.random() * selectedGenre.background.length)];
@@ -118,15 +122,26 @@ export async function generatePoster({ topArtists, topSong, username, topGenre, 
   ctx.fillStyle = "white";
   ctx.fillText(`A FILM BY ${username || "UNKNOWN USER"}`, centerX, filmByY);
 
-  // === MOVIEFY ===
-  const moviefyFont = selectedGenre.moviefyFont; 
-  const moviefyColor = selectedGenre.moviefyColor;
-  ctx.font = moviefyFont;
-  // ctx.fillStyle = "#d40c0c";
-  ctx.fillStyle = `${moviefyColor}`;
+// === MOVIE TITLE / PLAYLIST ===
+const playlistTitle = playlist || "MY PLAYLIST";
+const maxTextWidth = canvas.width * 0.9; // 90% of canvas width
+const moviefyY = selectedGenre.moviefyPosition;
+const moviefyFontStyle = selectedGenre.moviefyFontStyle;
+ctx.fillStyle = selectedGenre.moviefyColor;
 
-  const moviefyY = selectedGenre.moviefyPosition; // Fixed Y-position for MOVIEFY
-  ctx.fillText("MOVIEFY", centerX, moviefyY);
+
+let fontSize = selectedGenre.moviefyFontSize; // Max size
+ctx.textAlign = "center";
+
+while (fontSize > 30) {
+  ctx.font = `${fontSize}px ${moviefyFontStyle}`; 
+  const textWidth = ctx.measureText(playlistTitle).width;
+  if (textWidth <= maxTextWidth) break;
+  fontSize -= 2;
+}
+
+ctx.fillText(playlistTitle.toUpperCase(), centerX, moviefyY);
+
 
   // === FEATURING THE HIT SONG ===
   const songLabelY = canvas.height - 400;
@@ -143,10 +158,11 @@ export async function generatePoster({ topArtists, topSong, username, topGenre, 
   const creditY = canvas.height - 230;
   const userDisplay = username || "UNKNOWN";
   const credits =
-    `SPOTIFY & ${userDisplay} PRODUCTIONS PRESENTS “MOVIEFY” ` +
-    `STARRING ${topArtists.slice(0, 5).join(", ")} ` +
-    `RUNTIME ${runtime} MINS • FEATURING "${playlist}" • ` +
-    `GENRE: ${topGenre} • OFFICIAL SELECTION: YOUR HEADPHONES 2025`;
+    `SPOTIFY & ${userDisplay} PRODUCTIONS PRESENTS “${playlist}” ` +
+    `STARRING ${topArtists.slice(0, 5).join(", ")} •` +
+    ` RUNTIME ${runtime} • FEATURING MOVIEFY • ` +
+    `INSPIRED BY YOUR LOVE OF ${genreA} • OFFICIAL SELECTION: YOUR HEADPHONES 2025` +
+	`• THE ${genreB} EXPERIENCE`;
 
   ctx.font = "23px 'Bebas Neue'";
   wrapText(ctx, credits, centerX, creditY, 1000, 30);
