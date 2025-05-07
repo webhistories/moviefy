@@ -20,7 +20,7 @@ export async function generatePoster({ topArtists, topSong, username, genreA, ge
       moviefyFontSize: 300,
       moviefyPosition: 900,
       moviefyColor: '#f5f5f5',
-      filmbyY: 400,
+      filmbyY: 230,
     },
     romance: {
       background: [
@@ -34,9 +34,10 @@ export async function generatePoster({ topArtists, topSong, username, genreA, ge
         "THE SOUNDTRACK OF YOUR HEART",
         "WHEN MUSIC AND LOVE MEET"
       ],
-      moviefyFontStyle: "'Cormorant Garamond'",
+      //moviefyFontStyle: "'Cormorant Garamond'",
+	  moviefyFontStyle: "'Playfair Display'",
       moviefyFontSize: 250,
-      moviefyPosition: 500,
+      moviefyPosition: 750,
       moviefyColor: '#f2f2f2',
       filmbyY: 280,
     },
@@ -55,7 +56,7 @@ export async function generatePoster({ topArtists, topSong, username, genreA, ge
       ],
       moviefyFontStyle: "'Russo One'",
       moviefyFontSize: 210,
-      moviefyPosition: 1340,
+      moviefyPosition: 1140,
 	  moviefyColor: '#f2f2f2',
       filmbyY: 300,
     }
@@ -64,7 +65,7 @@ export async function generatePoster({ topArtists, topSong, username, genreA, ge
   const selectedGenreKey = Object.keys(genres)[Math.floor(Math.random() * Object.keys(genres).length)];
   const selectedGenre = genres[selectedGenreKey];
   // force select one genre for test
-  //const selectedGenre = genres.romance;  // for testing 
+  //const selectedGenre = genres.sciFi;  // for testing 
 
   const img = new Image();
   const randomBackground = selectedGenre.background[Math.floor(Math.random() * selectedGenre.background.length)];
@@ -109,8 +110,6 @@ export async function generatePoster({ topArtists, topSong, username, genreA, ge
   ctx.fillText(`A FILM BY ${username || "UNKNOWN USER"}`, centerX, filmByY);
 
   const playlistTitle = playlist || "MY PLAYLIST";
-  //for testing
-  //const playlistTitle = "A VERY LONG NAMENAMENAME A VERY LONG NAMENAMENAMENAME";
   const maxTextWidth = canvas.width * 0.9;
   const moviefyY = selectedGenre.moviefyPosition;
   const moviefyFontStyle = selectedGenre.moviefyFontStyle;
