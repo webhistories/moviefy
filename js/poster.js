@@ -38,7 +38,7 @@ export async function generatePoster({ topArtists, topSong, username, genreA, ge
       moviefyFontSize: 250,
       moviefyPosition: 500,
       moviefyColor: '#f2f2f2',
-      filmbyY: 580,
+      filmbyY: 280,
     },
     sciFi: {
       background: [
@@ -55,16 +55,16 @@ export async function generatePoster({ topArtists, topSong, username, genreA, ge
       ],
       moviefyFontStyle: "'Russo One'",
       moviefyFontSize: 210,
-      moviefyPosition: 1400,
-      moviefyColor: '#f2a788',
-      filmbyY: 1200,
+      moviefyPosition: 1340,
+	  moviefyColor: '#f2f2f2',
+      filmbyY: 300,
     }
   };
 
   const selectedGenreKey = Object.keys(genres)[Math.floor(Math.random() * Object.keys(genres).length)];
   const selectedGenre = genres[selectedGenreKey];
   // force select one genre for test
-  //const selectedGenre = genres.horror;  // for testing 
+  //const selectedGenre = genres.romance;  // for testing 
 
   const img = new Image();
   const randomBackground = selectedGenre.background[Math.floor(Math.random() * selectedGenre.background.length)];
@@ -109,6 +109,8 @@ export async function generatePoster({ topArtists, topSong, username, genreA, ge
   ctx.fillText(`A FILM BY ${username || "UNKNOWN USER"}`, centerX, filmByY);
 
   const playlistTitle = playlist || "MY PLAYLIST";
+  //for testing
+  //const playlistTitle = "A VERY LONG NAMENAMENAME A VERY LONG NAMENAMENAMENAME";
   const maxTextWidth = canvas.width * 0.9;
   const moviefyY = selectedGenre.moviefyPosition;
   const moviefyFontStyle = selectedGenre.moviefyFontStyle;
