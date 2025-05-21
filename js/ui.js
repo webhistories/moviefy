@@ -18,7 +18,16 @@ export function setupPostLoginButtons() {
   });
 
   shareBtn.addEventListener("click", () => {
-    // You can implement Web Share API or show modal with instructions
-    alert("To share, save the image first and upload to Instagram Stories.");
-  });
+	  document.getElementById("posterApp").style.display = "none";
+	  document.getElementById("sharePreview").style.display = "flex";
+
+	  
+	  const original = document.getElementById("posterCanvas");
+	  const shareCanvas = document.getElementById("posterCanvasShare");
+	  const ctx = shareCanvas.getContext("2d");
+	  ctx.clearRect(0, 0, shareCanvas.width, shareCanvas.height);
+	  ctx.drawImage(original, 0, 0);
+
+	  alert("Long press to save or screenshot and share to Instagram Story.");
+	});
 }

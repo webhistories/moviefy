@@ -8,7 +8,15 @@ export async function generatePoster({ topArtists, topSong, username, genreA, ge
       background: [
         "img/horror_bg_1.jpg",
         "img/horror_bg_2.jpg",
-        "img/horror_bg_3.jpg"
+        "img/horror_bg_3.jpg",
+		"img/horror_bg_4.jpg",
+		"img/horror_bg_5.jpg",
+		"img/horror_bg_6.jpg",
+		"img/horror_bg_7.jpg",
+		"img/horror_bg_8.jpg",
+		"img/horror_bg_9.jpg",
+		"img/horror_bg_10.jpg",
+		"img/horror_bg_11.jpg"
       ],
       font: "32px 'Barlow'",
       tagline: [
@@ -26,7 +34,8 @@ export async function generatePoster({ topArtists, topSong, username, genreA, ge
       background: [
         "img/romance_bg_1.jpg",
         "img/romance_bg_2.jpg",
-        "img/romance_bg_3.jpg"
+        "img/romance_bg_3.jpg",
+		"img/romance_bg_4.jpg"
       ],
       font: "32px 'Playfair Display'",
       tagline: [
@@ -46,7 +55,12 @@ export async function generatePoster({ topArtists, topSong, username, genreA, ge
         "img/scifi_bg_1.jpg",
         "img/scifi_bg_2.jpg",
         "img/scifi_bg_3.jpg",
-        "img/scifi_bg_4.jpg"
+        "img/scifi_bg_4.jpg",
+		"img/scifi_bg_5.jpg",
+		"img/scifi_bg_6.jpg",
+		"img/scifi_bg_7.jpg",
+		"img/scifi_bg_8.jpg",
+		"img/scifi_bg_9.jpg"
       ],
       font: "32px 'Orbitron'",
       tagline: [
@@ -65,7 +79,7 @@ export async function generatePoster({ topArtists, topSong, username, genreA, ge
   const selectedGenreKey = Object.keys(genres)[Math.floor(Math.random() * Object.keys(genres).length)];
   const selectedGenre = genres[selectedGenreKey];
   // force select one genre for test
-  //const selectedGenre = genres.sciFi;  // for testing 
+  //const selectedGenre = genres.horror;  // for testing 
 
   const img = new Image();
   const randomBackground = selectedGenre.background[Math.floor(Math.random() * selectedGenre.background.length)];

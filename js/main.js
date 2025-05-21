@@ -42,9 +42,9 @@ async function fetchSpotifyData(token) {
     const userData = await userRes.json();
     const playlistsData = await playlistsRes.json();
 
-    console.log("Top Artists:", artistsData);
-    console.log("User Data:", userData);
-    console.log("Playlists Data:", playlistsData);
+    //console.log("Top Artists:", artistsData);
+    //console.log("User Data:", userData);
+    //console.log("Playlists Data:", playlistsData);
 
     const topArtists = artistsData.items;
     const user = userData;
